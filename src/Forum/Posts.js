@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { posts } from '../data'
+import { useForum } from './ForumContext'
 
 const Posts = ({ onSelectPost }) => {
+  const { posts } = useForum()
   return (
     <Modal>
       <ModalContent>

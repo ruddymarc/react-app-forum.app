@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { ForumProvider } from './ForumContext'
 import Posts from './Posts'
 import Sidebar from './Sidebar'
 import PostDetail from './PostDetail'
@@ -10,12 +11,14 @@ const Forum = () => {
   const onSelectPost = (post) => { setSelectedPost(post); }
 
   return (
-    <Wrapper>
-      { selectedPost 
-        ? <PostDetail post={selectedPost} onClose={onClose} /> 
-        : <Posts onSelectPost={onSelectPost} /> }
-      <Sidebar />
-    </Wrapper>
+    <ForumProvider>
+      <Wrapper>
+        { selectedPost
+          ? <PostDetail post={selectedPost} onClose={onClose} />
+          : <Posts onSelectPost={onSelectPost} /> }
+        <Sidebar />
+      </Wrapper>
+    </ForumProvider>
   );
 };
 

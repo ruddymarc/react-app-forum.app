@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { users } from '../data'
+import { useForum } from './ForumContext'
 
 const Sidebar = () => {
+  const { users } = useForum()
   return (
     <Wrapper>
       <section>
