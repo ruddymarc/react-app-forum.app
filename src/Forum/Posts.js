@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { posts } from '../data'
 
 const Posts = ({ onSelectPost }) => {
@@ -25,6 +26,10 @@ const Posts = ({ onSelectPost }) => {
       </div>
     </main>
   )
+}
+
+Posts.propTypes = {
+  onSelectPost: PropTypes.func.isRequired,
 }
 
 export default Posts
