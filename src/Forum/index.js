@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import Posts from './Posts'
 import Sidebar from './Sidebar'
 import PostDetail from './PostDetail'
-import './style.css'
 
 const Forum = () => {
   const [selectedPost, setSelectedPost] = useState(null);
@@ -10,13 +10,21 @@ const Forum = () => {
   const onSelectPost = (post) => { setSelectedPost(post); }
 
   return (
-    <div className="Forum">
+    <Wrapper>
       { selectedPost 
         ? <PostDetail post={selectedPost} onClose={onClose} /> 
         : <Posts onSelectPost={onSelectPost} /> }
       <Sidebar />
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  width: 100vw;
+  min-height: 100vh;
+  background: #F5F5F5;
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 export default Forum

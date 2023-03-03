@@ -1,22 +1,21 @@
 import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const PostDetail = ({ post, onClose }) => {
   return (
-    <main>
-      <button
-        type='button'
-        className='Btn_close'
+    <Modal>
+      <BtnClose
         title='Back to publication'
         onClick={onClose}
       >
         &times;
-      </button>
-      <div className='_content'>
+      </BtnClose>
+      <ModalContent>
         <h2>{ post.title }</h2>
         { post.content }
-      </div>
-    </main>
+      </ModalContent>
+    </Modal>
   )
 }
 
@@ -28,5 +27,33 @@ PostDetail.propTypes = {
   }).isRequired,
   onClose: PropTypes.func.isRequired,
 }
+
+const Modal = styled.main`
+  flex: 3;
+  min-width: 25rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: #5352ed;
+  color: snow;
+`;
+
+const ModalContent = styled.main`
+  width: 100%;
+  height: 100%;
+  background: #F1F1F1;
+  color: dimgray;
+  padding: .5em;
+  text-align: justify;
+`;
+
+const BtnClose = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  color: inherit;
+  font-size: calc(10px + 2vmin);
+`;
 
 export default PostDetail
