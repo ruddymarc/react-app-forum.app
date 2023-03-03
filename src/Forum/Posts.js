@@ -2,12 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useForum } from './ForumContext'
+import NewPost from './NewPost'
 
 const Posts = ({ onSelectPost }) => {
   const { posts } = useForum()
   return (
     <Modal>
       <ModalContent>
+        <NewPost />
         <h2>Publications</h2>
         { posts ? (
           <ul>

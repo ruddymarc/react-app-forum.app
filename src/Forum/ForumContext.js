@@ -4,22 +4,22 @@ import React, {
 } from 'react'
 
 const ForumContext = createContext()
+const users = [
+  {
+    id: Math.random().toString(),
+    username: 'john_doe',
+    names: { first: 'John', last: 'Doe' },
+    online: true,
+  },
+  {
+    id: Math.random().toString(),
+    username: 'jane_doe',
+    names: { first: 'Jane', last: 'Doe' },
+    online: false,
+  }
+]
 
 const ForumProvider = ({ children }) => {
-  const [users] = useState([
-    {
-      id: Math.random().toString(),
-      username: 'john_doe',
-      names: { first: 'John', last: 'Doe' },
-      online: true,
-    },
-    {
-      id: Math.random().toString(),
-      username: 'jane_doe',
-      names: { first: 'Jane', last: 'Doe' },
-      online: false,
-    }
-  ])
   const [posts, setPosts] = useState([
     {
       id: Math.random().toString(),
@@ -30,9 +30,13 @@ const ForumProvider = ({ children }) => {
   const params = useMemo(() => ({
     users,
     posts,
-    addPost: (post) => setPosts([...posts, post]),
-    removePost: (postId) => setPosts(posts.filter((post) => post.id !== postId))
-  }), [posts, users])
+    addPost: (post) => {
+      setPosts([...posts, post])
+    },
+    removePost: (postId) => {
+      setPosts([...posts.filter((post) => post.id !== postId)])
+    },
+  }), [posts])
 
   return (
     <ForumContext.Provider value={params}>
