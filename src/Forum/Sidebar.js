@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { users } from '../data'
+import { useSelector } from 'react-redux'
 
 const Sidebar = () => {
+  const users = useSelector((state) => state.users)
+
   return (
     <Wrapper>
       <section>
-        <h2>Utilisateurs du forum</h2>
+        <h2>Forum users</h2>
         { users ? (
           <List>
             { users.map((user) => (

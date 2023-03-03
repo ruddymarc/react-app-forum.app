@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { posts } from '../data'
+import { useSelector } from 'react-redux'
 
 const Posts = ({ onSelectPost }) => {
+  const posts = useSelector((state) => state.posts)
+
   return (
     <Modal>
       <ModalContent>
