@@ -1,0 +1,26 @@
+{
+  "posts": [
+    {
+      "id": "d2cd821f-2e78-47b5-a0cd-a50c25955bc6",
+      "title": "Le fil à couper le beurre en phase de test finale",
+      "content": "Des scientifiques auraient mis au point un outil ayant l'apparence d'un fil et pouvant servir à couper du beurre. Une révolution pour le monde de la tartine."
+    }
+  ],
+  "users": [
+    {
+      "id": "1784b469-5063-4f79-aeed-ce451e5cf221",
+      "username": "cluffy_forgi",
+      "online": true
+    },
+    {
+      "id": "1784b469-5063-4f79-aeed-ce451e5cf221",
+      "username": "RussianWeddingIsASovietUnion",
+      "online": true
+    },
+    {
+      "id": "1784b469-5063-4f79-aeed-ce451e5cf221",
+      "username": "evan-you-is-bae",
+      "online": false
+    }
+  ]
+}

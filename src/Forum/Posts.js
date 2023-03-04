@@ -1,12 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { posts } from '../data'
+import { useQuery } from 'react-query'
+import { getPosts } from './api'
+import NewPost from './NewPost'
 
 const Posts = ({ onSelectPost }) => {
+  const {
+    isLoading, isError, data, error,
+  } = useQuery('posts', getPosts)
+  const status = isLoading
+    ? <span>Loadin...</span>
+    : isError
+      ? <span>{ `Èrror : ${error.message}!` }</span>
+      : null
+    const posts = data
+
   return (
     <Modal>
       <ModalContent>
+        <NewPost />
         <h2>Publications</h2>
         { posts ? (
           <ul>
@@ -19,7 +32,7 @@ const Posts = ({ onSelectPost }) => {
               </li>
             )) }
           </ul>
-        ) : null }
+        ) : status }
       </ModalContent>
     </Modal>
   )

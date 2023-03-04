@@ -1,8 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-import { users } from '../data'
+import { useQuery } from 'react-query'
+import { getUsers } from './api'
 
 const Sidebar = () => {
+  const {
+    isLoading, isError, data, error,
+  } = useQuery('users', getUsers)
+  const status = isLoading
+    ? <span>Loadin...</span>
+    : isError
+      ? <span>{ `Èrror : ${error.message}!` }</span>
+      : null
+    const users = data
+
   return (
     <Wrapper>
       <section>
@@ -19,7 +30,7 @@ const Sidebar = () => {
               </ListItem>
             )) }
           </List>
-        ) : null }
+        ) : status }
       </section>
     </Wrapper>
   )
