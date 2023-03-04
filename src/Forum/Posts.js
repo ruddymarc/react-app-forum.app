@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
+import NewPost from './NewPost'
 
 const Posts = ({ onSelectPost }) => {
   const posts = useSelector((state) => state.posts)
@@ -9,6 +10,7 @@ const Posts = ({ onSelectPost }) => {
   return (
     <Modal>
       <ModalContent>
+        <NewPost />
         <h2>Publications</h2>
         { posts ? (
           <ul>

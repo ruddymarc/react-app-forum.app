@@ -20,7 +20,7 @@ const PostDetail = ({ post, onClose }) => {
 }
 
 PostDetail.propTypes = {
-  post: PropTypes.exact({
+  post: PropTypes.shape({
     id: PropTypes.string,
     title: PropTypes.string,
     content: PropTypes.string,

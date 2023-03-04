@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
-import { useSelector } from 'react-redux'
+import React from 'react';
+import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
 const Sidebar = () => {
-  const users = useSelector((state) => state.users)
+  const users = useSelector((state) => state.users);
 
   return (
     <Wrapper>
@@ -32,9 +32,11 @@ const Wrapper = styled.aside`
   width: 15rem;
   padding: 2rem;
 `;
+
 const List = styled.ul`
   margin-top: 1rem;
 `;
+
 const ListItem = styled.li`
   margin: 0.5rem 0;
   padding: 0.5rem;
@@ -67,4 +69,4 @@ const Status = styled.span`
   }
 `;
 
-export default Sidebar
+export default Sidebar;

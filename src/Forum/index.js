@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import Posts from './Posts'
-import Sidebar from './Sidebar'
-import PostDetail from './PostDetail'
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import Posts from './Posts';
+import Sidebar from './Sidebar';
+import PostDetail from './PostDetail';
 
 const Forum = () => {
   const [selectedPost, setSelectedPost] = useState(null);
@@ -27,4 +27,4 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-export default Forum
+export default Forum;

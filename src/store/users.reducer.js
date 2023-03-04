@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = [
   {
@@ -11,6 +11,7 @@ const initialState = [
     id: Math.random().toString(),
     username: 'jane_doe',
     names: { first: 'Jane', last: 'Doe' },
+    online: false,
   }
 ]
 
@@ -22,6 +23,6 @@ export const usersSlice = createSlice({
     builder
       .addDefaultCase((state) => state)
   },
-})
+});
 
-export default usersSlice.reducer
+export default usersSlice.reducer;
