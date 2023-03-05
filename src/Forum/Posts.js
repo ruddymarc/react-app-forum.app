@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { posts } from '../data'
+import NewPost from './NewPost'
+import { posts as postsData } from '../data'
 
 const Posts = ({ onSelectPost }) => {
+  const [posts, setPosts] = useState(postsData)
+  const addPost = (post) => { setPosts([...posts, post]) }
+
   return (
     <Modal>
       <ModalContent>
+        <NewPost addPost={addPost} />
         <h2>Publications</h2>
         { posts ? (
           <ul>
