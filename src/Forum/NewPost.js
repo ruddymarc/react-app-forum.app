@@ -4,16 +4,18 @@ import { useQueryClient, useMutation } from 'react-query'
 import { addPost } from './api'
 
 const NewPost = () => {
+  const [title, setTitle] = useState('')
+  const [content, setContent] = useState('')
+
   const queryClient = useQueryClient()
   const addPostMutation = useMutation(newPost => addPost(newPost), {
     onSuccess: () => {
       queryClient.invalidateQueries('posts')
+      setTitle('')
+      setContent('')
     },
   })
 
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
-  
   const handleTitleInput = (e) => setTitle(e.target.value)
   const handleContentInput = (e) => setContent(e.target.value)
   const handleSubmit = () => {
@@ -46,7 +48,7 @@ const NewPost = () => {
           onChange={handleContentInput}
         />
       </div>
-      <Button onClick={handleSubmit}>
+      <Button type='button' onClick={handleSubmit}>
         Post
       </Button>
     </Wrapper>
